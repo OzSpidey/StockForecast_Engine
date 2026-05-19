@@ -41,15 +41,13 @@ This pipeline does what a production ML team actually does:
 
 ## Screenshots
 
-| Dashboard — Forecast Overlay | MLflow Experiment Tracker |
+| Dashboard — Candlestick + Forecast Overlay | MLflow Experiment Tracker |
 |:---:|:---:|
-| ![Forecast Dashboard](screenshots/01_forecast_dashboard.png) | ![MLflow UI](screenshots/02_mlflow_ui.png) |
+| ![Forecast Dashboard](screenshots/01_forecast_dashboard.svg) | ![MLflow UI](screenshots/02_mlflow_ui.svg) |
 
-| Technical Indicators (MACD + RSI) | FastAPI Swagger Docs |
+| Technical Indicators — MACD + RSI | FastAPI Swagger Docs |
 |:---:|:---:|
-| ![Indicators](screenshots/03_indicators.png) | ![FastAPI](screenshots/04_fastapi_docs.png) |
-
-> **Add your own screenshots:** run the app, take a screenshot of each tab, and save them to `screenshots/` with the filenames above.
+| ![Indicators](screenshots/03_indicators.svg) | ![FastAPI Docs](screenshots/04_fastapi_docs.svg) |
 
 ---
 

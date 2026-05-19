@@ -1,0 +1,119 @@
+<svg width="900" height="420" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI',monospace">
+  <rect width="900" height="420" fill="#0d1117" rx="8"/>
+
+  <!-- ── MACD Panel (top half) ────────────────────────────────────── -->
+  <text x="18" y="22" fill="#8b949e" font-size="12" font-weight="600">MACD</text>
+  <rect x="60" y="30" width="820" height="170" fill="#161b22" rx="3" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Grid -->
+  <g stroke="#21262d" stroke-width="1">
+    <line x1="60" y1="85"  x2="880" y2="85"/>
+    <line x1="60" y1="115" x2="880" y2="115"/>
+    <line x1="60" y1="145" x2="880" y2="145"/>
+  </g>
+
+  <!-- Zero line -->
+  <line x1="60" y1="115" x2="880" y2="115" stroke="#444" stroke-width="1.5"/>
+
+  <!-- Y labels -->
+  <g fill="#8b949e" font-size="10" text-anchor="end">
+    <text x="56" y="88">1.5</text>
+    <text x="56" y="118">0</text>
+    <text x="56" y="148">-1.5</text>
+  </g>
+
+  <!-- MACD histogram bars (green above zero, red below) -->
+  <!-- 28 bars from x=70 to x=870, spacing=28.6, bar_width=18 -->
+  <!-- bar_y: positive = above zero (y < 115), negative = below (y > 115) -->
+  <!-- heights reflect MACD histogram values -->
+  <g clip-path="url(#macdclip)">
+    <rect x="70"  y="105" width="18" height="10" fill="#3fb950"/>
+    <rect x="99"  y="100" width="18" height="15" fill="#3fb950"/>
+    <rect x="128" y="108" width="18" height="7"  fill="#3fb950"/>
+    <rect x="157" y="112" width="18" height="3"  fill="#3fb950"/>
+    <rect x="186" y="115" width="18" height="8"  fill="#f85149"/>
+    <rect x="215" y="115" width="18" height="15" fill="#f85149"/>
+    <rect x="244" y="115" width="18" height="10" fill="#f85149"/>
+    <rect x="273" y="108" width="18" height="7"  fill="#3fb950"/>
+    <rect x="302" y="102" width="18" height="13" fill="#3fb950"/>
+    <rect x="331" y="98"  width="18" height="17" fill="#3fb950"/>
+    <rect x="360" y="103" width="18" height="12" fill="#3fb950"/>
+    <rect x="389" y="106" width="18" height="9"  fill="#3fb950"/>
+    <rect x="418" y="110" width="18" height="5"  fill="#3fb950"/>
+    <rect x="447" y="113" width="18" height="2"  fill="#3fb950"/>
+    <rect x="476" y="115" width="18" height="6"  fill="#f85149"/>
+    <rect x="505" y="115" width="18" height="12" fill="#f85149"/>
+    <rect x="534" y="115" width="18" height="7"  fill="#f85149"/>
+    <rect x="563" y="109" width="18" height="6"  fill="#3fb950"/>
+    <rect x="592" y="103" width="18" height="12" fill="#3fb950"/>
+    <rect x="621" y="96"  width="18" height="19" fill="#3fb950"/>
+    <rect x="650" y="100" width="18" height="15" fill="#3fb950"/>
+    <rect x="679" y="104" width="18" height="11" fill="#3fb950"/>
+    <rect x="708" y="108" width="18" height="7"  fill="#3fb950"/>
+    <rect x="737" y="111" width="18" height="4"  fill="#3fb950"/>
+    <rect x="766" y="114" width="18" height="1"  fill="#3fb950"/>
+    <rect x="795" y="115" width="18" height="5"  fill="#f85149"/>
+    <rect x="824" y="115" width="18" height="3"  fill="#f85149"/>
+    <rect x="853" y="112" width="18" height="3"  fill="#3fb950"/>
+  </g>
+  <defs><clipPath id="macdclip"><rect x="60" y="30" width="820" height="170"/></clipPath></defs>
+
+  <!-- MACD line -->
+  <path d="M79,106 L108,101 L137,107 L166,112 L195,118 L224,125 L253,120 L282,109 L311,103 L340,99 L369,104 L398,107 L427,110 L456,113 L485,118 L514,121 L543,117 L572,110 L601,104 L630,97 L659,101 L688,104 L717,108 L746,111 L775,114 L804,117 L833,116 L862,113"
+        stroke="#58a6ff" stroke-width="1.5" fill="none"/>
+
+  <!-- Signal line -->
+  <path d="M79,108 L108,104 L137,109 L166,114 L195,120 L224,127 L253,123 L282,113 L311,107 L340,103 L369,107 L398,110 L427,112 L456,115 L485,120 L514,124 L543,119 L572,113 L601,108 L630,102 L659,105 L688,108 L717,111 L746,113 L775,116 L804,119 L833,117 L862,114"
+        stroke="#d29922" stroke-width="1.5" fill="none"/>
+
+  <!-- Legend -->
+  <line x1="70" y1="28" x2="88" y2="28" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="92" y="32" fill="#8b949e" font-size="10">MACD</text>
+  <line x1="130" y1="28" x2="148" y2="28" stroke="#d29922" stroke-width="1.5"/>
+  <text x="152" y="32" fill="#8b949e" font-size="10">Signal</text>
+
+  <!-- ── RSI Panel (bottom half) ──────────────────────────────────── -->
+  <text x="18" y="222" fill="#8b949e" font-size="12" font-weight="600">RSI (14)</text>
+  <rect x="60" y="228" width="820" height="170" fill="#161b22" rx="3" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Grid -->
+  <g stroke="#21262d" stroke-width="1">
+    <line x1="60" y1="268" x2="880" y2="268"/>
+    <line x1="60" y1="313" x2="880" y2="313"/>
+    <line x1="60" y1="358" x2="880" y2="358"/>
+  </g>
+
+  <!-- Overbought / oversold bands -->
+  <rect x="60" y="228" width="820" height="40" fill="#f85149" opacity="0.07"/>
+  <rect x="60" y="358" width="820" height="40" fill="#3fb950" opacity="0.07"/>
+
+  <!-- 70 / 30 lines -->
+  <line x1="60" y1="268" x2="880" y2="268" stroke="#f85149" stroke-width="1" stroke-dasharray="6,3" opacity="0.6"/>
+  <line x1="60" y1="358" x2="880" y2="358" stroke="#3fb950" stroke-width="1" stroke-dasharray="6,3" opacity="0.6"/>
+
+  <!-- Y labels -->
+  <g fill="#8b949e" font-size="10" text-anchor="end">
+    <text x="56" y="233">100</text>
+    <text x="56" y="271">70</text>
+    <text x="56" y="316">50</text>
+    <text x="56" y="361">30</text>
+    <text x="56" y="400">0</text>
+  </g>
+
+  <!-- RSI line (stays mostly 40-65 with occasional spikes) -->
+  <path d="M79,300 L108,290 L137,296 L166,308 L195,318 L224,330 L253,322 L282,308 L311,298 L340,285 L369,292 L398,298 L427,304 L456,310 L485,320 L514,326 L543,315 L572,302 L601,290 L630,275 L659,282 L688,290 L717,295 L746,300 L775,305 L804,312 L833,308 L862,302"
+        stroke="#bc8cff" stroke-width="2" fill="none"/>
+
+  <!-- Overbought/oversold labels -->
+  <text x="866" y="266" fill="#f85149" font-size="9" text-anchor="end">Overbought (70)</text>
+  <text x="866" y="374" fill="#3fb950" font-size="9" text-anchor="end">Oversold (30)</text>
+
+  <!-- X-axis dates -->
+  <g fill="#8b949e" font-size="10" text-anchor="middle">
+    <text x="107" y="412">Jan 6</text>
+    <text x="273" y="412">Jan 14</text>
+    <text x="447" y="412">Jan 22</text>
+    <text x="621" y="412">Jan 30</text>
+    <text x="795" y="412">Feb 7</text>
+  </g>
+</svg>
