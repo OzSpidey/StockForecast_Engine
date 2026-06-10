@@ -26,26 +26,26 @@ and serves live predictions through a REST API and an interactive dashboard.**
 Most forecasting demos train a single model on a single stock and call it done.
 This pipeline does what a production ML team actually does:
 
-- **Three competing models** — XGBoost (tabular gradient boosting), Prophet (time-series decomposition), and a PyTorch LSTM — trained head-to-head on the same data
-- **24 engineered features** — RSI, MACD, Bollinger Bands, realised volatility, lag features, and calendar features
-- **Full MLflow experiment tracking** — every run logged: params, metrics, artifacts, model registry
-- **Auto-promotion** — the model with the best test-set RMSE is automatically promoted to the `Production` stage in the MLflow registry
-- **Walk-forward backtesting** — simulates real trading with expanding-window retraining; reports Sharpe ratio, max drawdown, and comparison against buy-and-hold
-- **Optuna hyperparameter tuning** — 50-trial Bayesian search over XGBoost's param space
-- **FastAPI prediction service** — `/predict/{ticker}`, `/predict/all`, `/health` with model staleness detection
-- **Plotly Dash dashboard** — candlestick chart with forecast overlay, MACD, RSI, and model leaderboard
-- **Fully containerised** — single `docker-compose up` brings up MLflow, the API, and the dashboard
-- **Automated retraining** — GitHub Actions runs the full pipeline every Monday at 06:00 UTC
+- **Three competing models**, XGBoost (tabular gradient boosting), Prophet (time-series decomposition), and a PyTorch LSTM, trained head-to-head on the same data
+- **24 engineered features**, RSI, MACD, Bollinger Bands, realised volatility, lag features, and calendar features
+- **Full MLflow experiment tracking**, every run logged: params, metrics, artifacts, model registry
+- **Auto-promotion**, the model with the best test-set RMSE is automatically promoted to the `Production` stage in the MLflow registry
+- **Walk-forward backtesting**, simulates real trading with expanding-window retraining; reports Sharpe ratio, max drawdown, and comparison against buy-and-hold
+- **Optuna hyperparameter tuning**, 50-trial Bayesian search over XGBoost's param space
+- **FastAPI prediction service**, `/predict/{ticker}`, `/predict/all`, `/health` with model staleness detection
+- **Plotly Dash dashboard**, candlestick chart with forecast overlay, MACD, RSI, and model leaderboard
+- **Fully containerised**, single `docker-compose up` brings up MLflow, the API, and the dashboard
+- **Automated retraining**, GitHub Actions runs the full pipeline every Monday at 06:00 UTC
 
 ---
 
 ## Screenshots
 
-| Dashboard — Candlestick + Forecast Overlay | MLflow Experiment Tracker |
+| Dashboard, Candlestick + Forecast Overlay | MLflow Experiment Tracker |
 |:---:|:---:|
 | ![Forecast Dashboard](screenshots/01_forecast_dashboard.svg) | ![MLflow UI](screenshots/02_mlflow_ui.svg) |
 
-| Technical Indicators — MACD + RSI | FastAPI Swagger Docs |
+| Technical Indicators, MACD + RSI | FastAPI Swagger Docs |
 |:---:|:---:|
 | ![Indicators](screenshots/03_indicators.svg) | ![FastAPI Docs](screenshots/04_fastapi_docs.svg) |
 
@@ -74,7 +74,7 @@ flowchart TD
 
 ## Quick Start
 
-### 1 — Install
+### 1, Install
 
 ```bash
 git clone https://github.com/OzSpidey/ml-forecasting-pipeline.git
@@ -82,7 +82,7 @@ cd ml-forecasting-pipeline
 pip install -r requirements.txt
 ```
 
-### 2 — Train
+### 2, Train
 
 ```bash
 # Train all 5 tickers (AAPL · MSFT · TSLA · NVDA · SPY)
@@ -123,7 +123,7 @@ MLflow UI: mlflow ui --backend-store-uri sqlite:///mlflow.db
 
 </details>
 
-### 3 — View MLflow
+### 3, View MLflow
 
 ```bash
 mlflow ui --backend-store-uri sqlite:///mlflow.db
@@ -132,14 +132,14 @@ mlflow ui --backend-store-uri sqlite:///mlflow.db
 
 Compare all runs, inspect params/metrics, and see the model registry.
 
-### 4 — Start the API
+### 4, Start the API
 
 ```bash
 uvicorn serve:app --reload
 # → http://localhost:8000/docs
 ```
 
-### 5 — Launch the Dashboard
+### 5, Launch the Dashboard
 
 ```bash
 python dashboard.py
@@ -231,7 +231,7 @@ Returns status, trained tickers, and any **stale models** (not retrained in > 7 
 ### Prophet (time-series decomposition)
 - Captures yearly + weekly seasonality with a custom monthly component
 - `seasonality_mode=multiplicative`
-- Works on raw close price — no feature engineering needed
+- Works on raw close price, no feature engineering needed
 
 ### LSTM (PyTorch, sequence model)
 - 2-layer LSTM, hidden size 64, dropout 0.2
@@ -243,7 +243,7 @@ Returns status, trained tickers, and any **stale models** (not retrained in > 7 
 
 ## Backtesting
 
-The walk-forward backtester (`src/backtest.py`) re-trains on an expanding window at each step — no data leakage. It goes long when the model predicts an up day and holds cash otherwise:
+The walk-forward backtester (`src/backtest.py`) re-trains on an expanding window at each step, no data leakage. It goes long when the model predicts an up day and holds cash otherwise:
 
 | Metric | Description |
 |---|---|
@@ -330,7 +330,7 @@ LSTM_SEQ_LEN  = 30         # days of history per LSTM input sequence
 
 ## License
 
-MIT — use freely, attribution appreciated.
+MIT, use freely, attribution appreciated.
 
 ---
 
